@@ -58,3 +58,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "twitter-bootstrap-rails"
 gem 'bootstrap_form'
+gem 'rails-i18n'

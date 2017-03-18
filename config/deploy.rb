@@ -3,7 +3,7 @@ lock "3.7.1"
 
 set :application, "myrails"
 set :repo_url, ->{ "file://" + Dir::pwd + "/.git" }
-set :scm, :gitcopy
+# set :scm, :gitcopy
 
 
 # Default branch is :master
