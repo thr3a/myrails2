@@ -13,6 +13,11 @@ set :rbenv_ruby, '2.3.1'
 set :rbenv_path, "/home/#{fetch(:user)}/.rbenv"
 # set :rbenv_type, :system
 
+set :nginx_server_name, "example.com"
+set :nginx_sites_available_path, "/etc/nginx/sites-available"
+set :nginx_sites_enabled_path, "/etc/nginx/sites-enabled"
+set :nginx_config_name, "#{fetch(:application)}-puma.conf"
+
 # role-based syntax
 # ==================
 
