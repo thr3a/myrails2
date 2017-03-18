@@ -5,16 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="<%= Rails.application.config.title %>" name="title">
-    <meta content="description" name="description">
+    <!-- <meta content="description" name="description"> -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<%= Rails.application.config.title %>">
     <meta property="og:site_name" content="<%= Rails.application.config.title %>">
-    <meta property="og:description" content="description">
-    <meta property="og:image" content="http://niconico.turai.work/image.png">
+    <meta property="og:title" content="<%= content_for?(:title) ? "#{yield(:title)} - #{Rails.application.config.title}" : Rails.application.config.title %>">
+    <!-- <meta property="og:description" content="description"> -->
+    <meta property="og:image" content="<%= image_url('/ogp.png') %>">
     <meta property="og:url" content="<%= request.url %>">
     <meta name="twitter:card" content="summary_large_image">
 
-    <title><%= content_for?(:title) ? yield(:title) : Rails.application.config.title %></title>
+    <title><%= content_for?(:title) ? "#{yield(:title)} - #{Rails.application.config.title}" : Rails.application.config.title %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -23,13 +23,14 @@
 
   <body>
     <div class="container">
+      <h1><%= Rails.application.config.title %></h1>
       <% flash.each do |type, msg| %>
         <div class="<%= "alert alert-#{type}" %>">
-        <% Array(msg).each do |m| %>
-          <p><%= m %></p>
-        <% end %>
+          <% Array(msg).each do |m| %>
+            <div><%= m %></div>
+          <% end %>
+        </div>
       <% end %>
-      <h1><%= Rails.application.config.title %></h1>
       <%= yield %>
     </div>
   </body>
