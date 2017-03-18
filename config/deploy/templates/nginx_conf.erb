@@ -1,9 +1,10 @@
 upstream puma-<%= fetch(:application) %> {
-  server unix:<%= fetch(:puma_bind) %>
+  server unix:<%= fetch(:puma_bind) %>;
 }
 
 server {
-  listen 80 <%= fetch(:nginx_server_name) %>;
+  listen 80;
+  server_name <%= fetch(:nginx_server_name) %>;
   root <%= "#{current_path}/public" %>;
   client_max_body_size 0;
   error_page 404 /404.html;
