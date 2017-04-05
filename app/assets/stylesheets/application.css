@@ -12,4 +12,13 @@
  *
  *= require_tree .
  *= require_self
+ 
+ *= require font-awesome
+ 
  */
+
+.btn-share-twitter {
+  background-color: #00aced;
+  color: #fff;
+  max-width: 250px;
+}
