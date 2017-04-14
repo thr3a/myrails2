@@ -1,5 +1,5 @@
 upstream puma-<%= fetch(:application) %> {
-  server unix:<%= fetch(:puma_bind) %>;
+  server <%= fetch(:puma_bind) %>;
 }
 
 server {

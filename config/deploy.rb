@@ -58,7 +58,7 @@ namespace :deploy do
   task :upload do
     on roles(:app), in: :sequence, wait: 5 do
       fetch(:linked_files).each do |filename|
-        execute :mkdir, '-p', "#{File.dirname(filename)}"
+        execute :mkdir, '-p', "#{shared_path}/#{File.dirname(filename)}"
         upload!(filename, "#{shared_path}/#{filename}")
       end
     end
